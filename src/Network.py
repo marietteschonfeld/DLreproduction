@@ -26,3 +26,5 @@ class SRFU(torch.nn.Module):
             if hasattr(layer, 'weight'):
                 layer.weight -= lr * layer.weight_grad
                 layer.bias -= lr * layer.bias_grad
+
+
