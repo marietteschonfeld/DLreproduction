@@ -54,6 +54,7 @@ for idx, im_name in enumerate(image_names):
     im, im_scale = resize(im, target_size, max_size, stride=config.network.IMAGE_STRIDE)
     im_tensor = transform(im, np.array([0, 0, 0]))
     im_info = np.array([[im_tensor.shape[2], im_tensor.shape[3], im_scale]], dtype=np.float32)
+
     #     if idx % key_frame_interval == 0:
     #         if idx == 0:
     #             data_oldkey = im_tensor.copy()
