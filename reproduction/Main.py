@@ -31,7 +31,7 @@ classes = ['airplane', 'antelope', 'bear', 'bicycle',
             'red_panda', 'sheep', 'snake', 'squirrel',
             'tiger', 'train', 'turtle', 'watercraft',
             'whale', 'zebra']
-cur_path = "C:/CodeRepositories/Master/DLReproduction/"
+cur_path = "C:/CodeRepositories/Master/DLReproduction/DLReproduction/reproduction"
 # load demo data
 
 # print(image_names)

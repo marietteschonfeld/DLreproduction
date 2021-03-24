@@ -3,7 +3,7 @@ import os
 import cv2
 import random
 from PIL import Image
-from bbox_transform import clip_boxes
+from lib.utils.bbox_transform import clip_boxes
 import mxnet as mx
 
 # TODO: This two functions should be merged with individual data loader
