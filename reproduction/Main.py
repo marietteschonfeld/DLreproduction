@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 
 from lib.utils.image import resize, transform
-import lib.utils.config
+from lib.utils.config import config, update_config
 
     #     # get symbol
     # pprint.pprint(config)
@@ -31,7 +31,7 @@ classes = ['airplane', 'antelope', 'bear', 'bicycle',
             'red_panda', 'sheep', 'snake', 'squirrel',
             'tiger', 'train', 'turtle', 'watercraft',
             'whale', 'zebra']
-cur_path = "C:/CodeRepositories/Master/DLReproduction/DLReproduction/reproduction"
+cur_path = "C:/CodeRepositories/Master/DLReproduction/DLReproduction"
 # load demo data
 
 # print(image_names)
@@ -44,6 +44,8 @@ key_frame_interval = 10
 
 image_names = glob.glob(cur_path + "/ILSVRC2015_VID_snippets_final/ILSVRC2015/Data/VID/snippets/train/ILSVRC2015_VID_train_0001/*") #glob.glob(cur_path + '/../ILSVRC2015_VID_snippets_final/ILSVRC2015/Data/VID/snippets/train/ILSVRC2015_VID_train_0001/')
 image_names.sort()
+print(len(image_names), " images found in dataset.")
+print("parsing data...")
 data = []
 for idx, im_name in enumerate(image_names):
     assert(os.path.exists(im_name), ('%s does not exist'.format(im_name)))
@@ -55,19 +57,21 @@ for idx, im_name in enumerate(image_names):
     im_tensor = transform(im, np.array([0, 0, 0]))
     im_info = np.array([[im_tensor.shape[2], im_tensor.shape[3], im_scale]], dtype=np.float32)
 
-    #     if idx % key_frame_interval == 0:
-    #         if idx == 0:
-    #             data_oldkey = im_tensor.copy()
-    #             data_newkey = im_tensor.copy()
-    #             data_cur = im_tensor.copy()
-    #         else:
-    #             data_oldkey = data_newkey.copy()
-    #             data_newkey = im_tensor
-    #     else:
-    #         data_cur = im_tensor
-    #     shape = im_tensor.shape
-    #     infer_height = int(np.ceil(shape[2] / 16.0))
-    #     infer_width = int(np.ceil(shape[3] / 16.0))
-    #     data.append({'data_oldkey': data_oldkey, 'data_newkey': data_newkey, 'data_cur': data_cur, 'im_info': im_info,
-    #                  'impression': np.zeros((1, config.network.DFF_FEAT_DIM, infer_height, infer_width)),
-    #                  'key_feat_task': np.zeros((1, config.network.DFF_FEAT_DIM, infer_height, infer_width))})
+    if idx % key_frame_interval == 0:
+        if idx == 0:
+            data_oldkey = im_tensor.copy()
+            data_newkey = im_tensor.copy()
+            data_cur = im_tensor.copy()
+        else:
+            data_oldkey = data_newkey.copy()
+            data_newkey = im_tensor
+    else:
+        data_cur = im_tensor
+    shape = im_tensor.shape
+    infer_height = int(np.ceil(shape[2] / 16.0))
+    infer_width = int(np.ceil(shape[3] / 16.0))
+    data.append({'data_oldkey': data_oldkey, 'data_newkey': data_newkey, 'data_cur': data_cur, 'im_info': im_info,
+                    'impression': np.zeros((1, config.network.DFF_FEAT_DIM, infer_height, infer_width)),
+                    'key_feat_task': np.zeros((1, config.network.DFF_FEAT_DIM, infer_height, infer_width))})
+
+print(data)
