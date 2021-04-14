@@ -12,5 +12,5 @@ The visible effort is mostly in adaptations in both some library files and the T
 Since the project was deemed too large to translate (1.4 million lines total, originally written in python 2) and the large number of libraries issues, we instead tried to get to get it working on Linux, in both Google Collab and Google Cloud VM.
 This effort was also deemed unsuccesful, since there were also many incompatibility issues due to old library versions and instructions from the author that simply do not work (such as calling "python file1 file2", while the files do not exist and incomplete information on libraries.). 
 See our blog for a complete story of our efforts to try and reproduce this paper: https://medium.com/death-of-the-author/death-of-the-author-and-the-authors-responsibility-for-their-codebase-685ad0226931
-The repository on Google Colab is visible here https://colab.research.google.com/drive/1Q3L6JcIbh7HnBFz_9jniFS2r5-6J-Xv-?usp=sharing.
+[The repository on Google Colab is visible here](https://colab.research.google.com/drive/1Q3L6JcIbh7HnBFz_9jniFS2r5-6J-Xv-?usp=sharing)
 The description of what problems we encountered there and on Google Cloud are shared in the blog.
