@@ -7,17 +7,16 @@ import cv2
 from lib.utils.image import resize, transform
 from lib.utils.config import config, update_config
 
-    #     # get symbol
-    # pprint.pprint(config)
-    # config.symbol = 'impression_network_dynamic_offset_sparse'
-    # model = '/../local_run_output/impression_dynamic_offset-lr-10000-times-neighbor-4-dense-4'
-    # first_sym_instance = eval(config.symbol + '.' + config.symbol)()
-    # key_sym_instance = eval(config.symbol + '.' + config.symbol)()
-    # cur_sym_instance = eval(config.symbol + '.' + config.symbol)()
+    # get symbol
+# config.symbol = 'impression_network_dynamic_offset_sparse'
+# model = '/../local_run_output/impression_dynamic_offset-lr-10000-times-neighbor-4-dense-4'
+# first_sym_instance = eval(config.symbol + '.' + config.symbol)()
+# key_sym_instance = eval(config.symbol + '.' + config.symbol)()
+# cur_sym_instance = eval(config.symbol + '.' + config.symbol)()
 
-    # first_sym = first_sym_instance.get_first_test_symbol_impression(config)
-    # key_sym = key_sym_instance.get_key_test_symbol_impression(config)
-    # cur_sym = cur_sym_instance.get_cur_test_symbol_impression(config)
+# first_sym = first_sym_instance.get_first_test_symbol_impression(config)
+# key_sym = key_sym_instance.get_key_test_symbol_impression(config)
+# cur_sym = cur_sym_instance.get_cur_test_symbol_impression(config)
 
 
 
@@ -50,6 +49,7 @@ data = []
 for idx, im_name in enumerate(image_names):
     assert(os.path.exists(im_name), ('%s does not exist'.format(im_name)))
     im = cv2.imread(im_name, cv2.IMREAD_COLOR | cv2.IMREAD_IGNORE_ORIENTATION)
+    print(im_name)
     #config.SCALES[0][0]
     target_size = 600 # first is scale (the shorter side)
     max_size = 1000 # max size
