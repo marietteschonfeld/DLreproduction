@@ -1,0 +1,3 @@
+[submodule "LSTS"]
+	path = LSTS
+	url = https://github.com/jiangzhengkai/LSTS
