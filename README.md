@@ -1,6 +1,6 @@
 # DLreproduction
 
-This was a 35 hour attempt of getting the LSTS Learning Where to Focus for Efficient Video Object Detection by Jiang ZhengKai et al working.
+This was part of a 35 hour attempt of getting the [LSTS Learning Where to Focus for Efficient Video Object Detection by Jiang ZhengKai et al](https://github.com/jiangzhengkai/LSTS) working.
 This repository only shows the work that went in translationg the Python 2 Linux code to Python 3 and Windows.
 Python 2 is deprecated since January 2020, while the author published the paper December 2020. This is why we at first tried to translate it.
 This github repository is only a small part of our efforts, see [our blog](https://medium.com/death-of-the-author/death-of-the-author-and-the-authors-responsibility-for-their-codebase-685ad0226931) for more effort getting the original code running.
